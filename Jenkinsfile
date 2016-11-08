@@ -13,6 +13,6 @@ node {
 		sh "docker cp target/MavenTest-0.0.1-SNAPSHOT.war my:/usr/local/tomcat/webapps"  
     	}
     	stage('results') {
-		archiveArtifacts artifacts: '**/target/*.war’, fingerprint: true
+		archiveArtifacts artifacts: '**/target/*.war', fingerprint: true
 	} 
 }
