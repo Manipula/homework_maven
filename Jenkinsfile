@@ -1,6 +1,6 @@
 node {   
 	stage('SCM') {    
-      		git 'https://github.com/Manipula/homework.git/'
+      		git 'https://github.com/Manipula/homework_maven.git'
     	}
 	stage('QA') {    
 		sh 'sonar-scanner'
@@ -10,7 +10,7 @@ node {
 		sh "docker stop my || true"//         
 		sh "docker rm my || true"//         
 		sh "docker run --name my -p 11111:8080 -d tomcat"//    
-		sh "docker cp target/MavenTest-0.0.1-SNAPSHOT.jar my:/usr/local/tomcat/  
+		sh "docker cp target/MavenTest-0.0.1-SNAPSHOT.jar my:/usr/local/tomcat/webapps"  
 	}
 	stage('results') { 
 		archiveArtifacts artifacts: '**/target/*.jar’, fingerprint: true
