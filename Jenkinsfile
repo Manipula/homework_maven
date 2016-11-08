@@ -11,8 +11,8 @@ node {
 		sh "docker rm my || true"         
 		sh "docker run --name my -p 11111:8080 -d tomcat"  
 		sh "docker cp target/MavenTest-0.0.1-SNAPSHOT.jar my:/usr/local/tomcat/webapps"  
-	}
-	stage('results') { 
+    	}
+    	stage('results') {
 		archiveArtifacts artifacts: '**/target/*.jar’, fingerprint: true
 	} 
 }
